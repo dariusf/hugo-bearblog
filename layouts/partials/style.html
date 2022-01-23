@@ -10,6 +10,7 @@
       --text-color: #444;
       --faded-text-color: #777;
       --blockquote-text-color: var(--bright-text-color);
+      --faint-color: #ccc;
     }
 
     {{ partial "css/syntax-light.css" . | safeCSS }}
@@ -25,6 +26,7 @@
       --faded-text-color: #aaa;
       --slightly-dimmer-text-color: #ccc;
       --blockquote-text-color: var(--slightly-dimmer-text-color);
+      --faint-color: #666;
 
       color-scheme: dark; /* sets scrollbar colour */
     }
@@ -117,7 +119,7 @@
   p code {
     /* to avoid having a background colour */
     border-radius: 4px;
-    border: solid var(--text-color) 1px;
+    border: solid var(--faint-color) 1px;
     margin: 2px;
     padding: 3px;
   }
