@@ -1,16 +1,19 @@
 <style>
-  :root {
-    --bright-text-color: #222;
-    --link-color: #3273dc;
-    /* --link-color: #ff5e6c; */
-    --link-visited-color: #6e4bbe;
-    --background-color: #fff;
-    --text-color: #444;
-    --faded-text-color: #777;
-    --blockquote-text-color: var(--bright-text-color);
-  }
 
-  {{ partial "css/syntax-light.css" . | safeCSS }}
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bright-text-color: #222;
+      --link-color: #3273dc;
+      /* --link-color: #ff5e6c; */
+      --link-visited-color: #6e4bbe;
+      --background-color: #fff;
+      --text-color: #444;
+      --faded-text-color: #777;
+      --blockquote-text-color: var(--bright-text-color);
+    }
+
+    {{ partial "css/syntax-light.css" . | safeCSS }}
+  }
 
   @media (prefers-color-scheme: dark) {
     :root {
