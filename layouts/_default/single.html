@@ -7,6 +7,9 @@
     </time>
 </p>
 {{ end }}{{ end }}
+{{ if .Params.toc }}
+  {{ .TableOfContents }}
+{{ end }}
 <content>
   {{ .Content }}
 </content>
