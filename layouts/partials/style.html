@@ -45,6 +45,12 @@
     {{ partial "css/syntax-dark.css" . | safeCSS }}
   }
 
+  /* https://stackoverflow.com/a/39289453 */
+  html {
+    overflow-x: hidden;
+    margin-right: calc(-1 * (100vw - 100%));
+  }
+
   body {
     font-family: Verdana, sans-serif;
     margin: auto;
