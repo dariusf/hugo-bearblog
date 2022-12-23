@@ -1,5 +1,20 @@
 
+<!--
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Poppins">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Dosis">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Crimson+Text">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Quicksand">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Cabin">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Open+Sans">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Work+Sans">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=PT+Sans">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Varela+Round">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Noto+Serif">
+-->
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Nunito">
+<link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Lato">
+
 <!-- <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Inconsolata"> -->
 <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Fira+Code">
 
@@ -35,29 +50,76 @@
       color-scheme: dark; /* sets scrollbar colour */
     }
 
-    /*
-    textarea, input {
-      background-color: #252525;
-      color: #ddd;
-    }
-    */
-
-    img.diagram {
+    img.theme-affected {
       filter: invert(.8);
     }
 
     {{ partial "css/syntax-dark.css" . | safeCSS }}
   }
 
-  /* https://stackoverflow.com/a/39289453 */
+  :root {
+/*    --text-font: Crimson Text, serif;*/
+/*    --text-font: Poppins, Verdana, sans-serif;*/
+/*    --heading-font: Quicksand, sans-serif;*/
+/*    --text-font: Open Sans, sans-serif;*/
+/*    --text-font-size: 16px;*/
+/*    --heading-font: Open Sans, sans-serif;*/
+/*    --text-font: Cabin, sans-serif;*/
+/*    --text-font-size: 16px;*/
+/*    --text-font: Roboto, sans-serif;*/
+
+/*    --heading-font: Roboto, sans-serif;*/
+/*    --heading-font: Cabin, sans-serif;*/
+/*    --heading-font: Dosis, sans-serif;*/
+
+/*    --heading-font: Work Sans, sans-serif;*/
+/*    --text-font: Open Sans, sans-serif;*/
+
+    --heading-font: Nunito, sans-serif;
+/*    --text-font: PT Sans, sans-serif;*/
+
+/*    --heading-font: Varela Round, sans-serif;*/
+/*    --text-font: Noto Serif, serif;*/
+
+    --text-font: Lato, sans-serif;
+    --text-font-size: 17px;
+
+  /* system font on all platforms */
+/*    --heading-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;*/
+/*    --text-font: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;*/
+  }
+
+  /* select parts of https://www.joshwcomeau.com/css/custom-css-reset/ */
+  * {
+    /* reset */
+    margin: 0;
+  }
+
+  body {
+    /* -webkit-font-smoothing: antialiased;*/
+  }
+
+  main {
+    /* spacing between nav and content */
+    margin-top: 1em;
+  }
+
+  /* blog posts */
+
+  p {
+    margin-bottom: 1em;
+  }
+
+  /* fix scrollbars, see https://stackoverflow.com/a/39289453 */
   html {
     overflow-x: hidden;
     margin-right: calc(-1 * (100vw - 100%));
   }
 
   body {
-    font-family: Poppins, Verdana, sans-serif;
-    margin: auto;
+    font-family: var(--text-font);
+    font-size: var(--text-font-size);
+    margin: auto; /* center everything */
     padding: 20px;
     max-width: 720px;
     text-align: left;
@@ -73,10 +135,26 @@
   h3,
   h4,
   h5,
-  h6,
-  strong,
-  b {
+  h6 {
+    font-family: var(--heading-font);
     color: var(--bright-text-color);
+
+    /* space after paragraphs, and not before the next paragraph.
+    the spacing after is provided by having a large font size. */
+    margin-top: 0.5em;
+  }
+
+  hr, ul {
+    margin-bottom: 0.5em;
+  }
+
+  .blog-timestamp {
+    font-size: 0.9em;
+  }
+
+  /* separation between content and time stamp */
+  .blog-content {
+    margin-top: 1.5em;
   }
 
   a {
@@ -84,30 +162,23 @@
     text-decoration: none;
   }
 
+  /* site title */
   .title {
-    text-decoration: none;
-    border: 0;
+    color: var(--text-color);
+    font-size: 1.5em; /* matches h2  */
+    font-family: var(--heading-font);
   }
 
-  .title span {
-    font-weight: 400;
-  }
-
+  /* links at the top */
   nav a {
     margin-right: 10px;
+    font-family: var(--heading-font);
   }
 
-  textarea {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  input {
-    font-size: 16px;
-  }
-
-  content {
-    line-height: 1.6;
+  /* active links */
+  .menuactive {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
   }
 
   table {
@@ -116,10 +187,15 @@
 
   img {
     max-width: 100%;
+    margin: auto; /* center  */
+    margin-bottom: 0.5em;
+    display: block;
   }
 
+  /* code blocks */
   code {
     padding: 2px 5px;
+    margin-bottom: 1em; /* same as paragraphs */
 
     font-family: Fira Code, monospace;
     font-size: 14px;
@@ -128,17 +204,6 @@
     /*font-family: Inconsolata, monospace;*/
     /*font-size: 16px;*/
     /*line-height: 1.15;*/
-
-    /*line-height: normal;*/
-  }
-
-  /* inline code */
-  p code {
-    /* to avoid having a background colour */
-    border-radius: 4px;
-    border: solid var(--faint-color) 1px;
-    margin: 0px 2px; /* top/bottom, left/right */
-    padding: 1px 2px;
   }
 
   /* code blocks */
@@ -150,6 +215,15 @@
 
   pre {
     border-radius: 10px;
+  }
+
+  /* inline code */
+  p code {
+    /* to avoid having a background colour */
+    border-radius: 4px;
+    border: solid var(--faint-color) 1px;
+    margin: 0px 2px; /* top/bottom, left/right */
+    padding: 1px 2px;
   }
 
   blockquote {
@@ -164,26 +238,12 @@
     text-align: center;
   }
 
-  .helptext {
-    color: var(--faded-text-color);
-    font-size: small;
-  }
-
   .deemphasize {
     color: var(--faded-text-color);
   }
 
-  .errorlist {
-    color: #eba613;
-    font-size: small;
-  }
+  /* blog post list page */
 
-  .menuactive {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-  }
-
-  /* blog posts */
   ul.blog-posts {
     list-style-type: none;
     padding: unset;
