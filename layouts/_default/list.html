@@ -7,7 +7,24 @@
   </small>
   {{ end }}
   <ul class="blog-posts">
-    {{ range .Pages }}
+    {{ range where .Pages ".Params.featured" "!=" nil }}
+    <li>
+      <span>
+          <time datetime='{{ .Date.Format "2006-01-02" }}' pubdate>
+            {{ .Date.Format (default "02 Jan, 2006" .Site.Params.dateFormat) }}
+          </time>
+      </span>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ else }}
+    <li>
+      No posts yet
+    </li>
+    {{ end }}
+  </ul>
+  <hr style="width: 60%; margin: 20px 3%;"/>
+  <ul class="blog-posts">
+    {{ range where .Pages ".Params.featured" "=" nil }}
     <li>
       <span>
           <time datetime='{{ .Date.Format "2006-01-02" }}' pubdate>
