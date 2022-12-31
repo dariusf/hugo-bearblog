@@ -1,4 +1,4 @@
 <a href="{{ "/" | relURL }}">
-  <div class="title">{{ .Site.Title }}</div>
+  <span class="title">{{ .Site.Title }}</span>
 </a>
-<nav>{{- partial "nav.html" . -}}</nav>
+<nav style="display: inline-block;">{{- partial "nav.html" . -}}</nav>
