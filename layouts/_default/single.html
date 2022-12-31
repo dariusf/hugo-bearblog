@@ -10,7 +10,7 @@
 {{ if .Params.toc }}
   {{ .TableOfContents }}
 {{ end }}
-<div class="blog-content">
+<div {{ if or (eq .Type "blog") (eq .Type "drafts") }} class="blog-content" {{end}}>
   {{ .Content }}
 </div>
 <p>

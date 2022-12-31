@@ -101,7 +101,7 @@
 
   main {
     /* spacing between nav and content */
-    margin-top: 1em;
+    margin-top: 0.75em;
   }
 
   /* blog posts */
@@ -138,7 +138,14 @@
   h6 {
     font-family: var(--heading-font);
     color: var(--bright-text-color);
+  }
 
+  .blog-content h1,
+  .blog-content h2,
+  .blog-content h3,
+  .blog-content h4,
+  .blog-content h5,
+  .blog-content h6 {
     /* space after paragraphs, and not before the next paragraph.
     the spacing after is provided by having a large font size. */
     margin-top: 0.5em;
@@ -167,11 +174,12 @@
     color: var(--text-color);
     font-size: 1.5em; /* matches h2  */
     font-family: var(--heading-font);
+    margin-right: 10px;
   }
 
   /* links at the top */
   nav a {
-    margin-right: 10px;
+    margin-right: 8px;
     font-family: var(--heading-font);
   }
 
